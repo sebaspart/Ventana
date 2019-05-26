@@ -23,11 +23,6 @@ int main()
                   case sf::Event::Closed:
                     window.close();
                     break;
-                  //key pressed
-                  case sf::Event::KeyPressed:
-                        //rotacion de sprite otro
-                        //otro.rotate(45);
-                     break;
                   case sf::Event::MouseButtonPressed:
                     if(event.mouseButton.button==sf::Mouse::Right){
                       rombo.move_position(Position);
@@ -47,6 +42,12 @@ int main()
               }
               }
               window.clear(sf::Color(180,200,255));
+             if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
+                rombo.change_state('h');
+              }
+              if(sf::Keyboard::isKeyPressed(sf::Keyboard::B)){
+                rombo.change_state('n');
+              }
 
             window.draw(cuadro.sprite());
             window.draw(rombo.sprite());

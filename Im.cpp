@@ -49,6 +49,7 @@
         Base.setPosition(position.x,position.y);
 
     }
+
     sf::Vector2f Im::position_get(){
         return Base.getPosition();
 
@@ -94,10 +95,9 @@
             }
 
     }
-
-
     return 0;
     }
+
     sf::Sprite Im::draw(){
         return Base;
     }

@@ -16,7 +16,7 @@
     void figura::move_position(sf::Vector2f destino){
         objeto[0].position_set(destino);
     }
-     void figura::move_position(sf::Vector2i destino){
+    void figura::move_position(sf::Vector2i destino){
         objeto[0].position_set(destino);
     }
     void figura::change_color(){
@@ -43,7 +43,7 @@
     }
     void figura::change_im(){
         if(state=='w'){ //caminando
-            current_im=0;
+            current_im=3;
         }
         else if(state=='m'){ //muerto
             current_im=1;
@@ -52,7 +52,7 @@
             current_im=2;
         }
         else{               //vivo o curacion
-            current_im=3;
+            current_im=0;
         }
 
 
