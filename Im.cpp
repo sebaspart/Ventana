@@ -57,11 +57,12 @@
 
     //Seleccion de sprites para manejo de un personaje u objeto
     int Im::asignation(int type, int index){
-    if(type ==0){
-            //imagen raiz
+        //imagen raiz
              if(!Imagen.loadFromFile("morg.JPG")){
             return -1;
             }
+    if(type ==0){
+
             switch (index){
             case 0:
                 //caso 1 de figura
@@ -78,9 +79,6 @@
 
     }
     if(type==1){
-        if(!Imagen.loadFromFile("morg.JPG")){
-            return -1;
-            }
             switch (index){
         case 0:
             Base.setTexture(Imagen);
@@ -100,4 +98,10 @@
 
     sf::Sprite Im::draw(){
         return Base;
+    }
+    sf::Vector2f Im::rect(){
+        sf::Vector2f bounds;
+        bounds.x=Base.getTextureRect().width/2.f;
+        bounds.y=Base.getTextureRect().height/2.f;
+        return bounds;
     }

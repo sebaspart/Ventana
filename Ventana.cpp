@@ -29,7 +29,7 @@ int main()
 
                     }
                     if(event.mouseButton.button==sf::Mouse::Left){
-                       cuadro.move_position(Position);
+                       //cuadro.move_position(Position);
                     }
 
                   break;
@@ -48,6 +48,9 @@ int main()
               if(sf::Keyboard::isKeyPressed(sf::Keyboard::B)){
                 rombo.change_state('n');
               }
+                if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)){
+                cuadro.move_position(Position);
+              }
 
             window.draw(cuadro.sprite());
             window.draw(rombo.sprite());
@@ -56,8 +59,12 @@ int main()
                 //indicador de coordenadas al click izquierdo
             if(sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
                 sf::Vector2i localPosition = sf::Mouse::getPosition(window);
-                std::cout<<localPosition.x<<"    " ;
-                std::cout<<localPosition.y<<std::endl;
+                if( cuadro.inside(localPosition)){
+                    std::cout<<"Esta dentro"<<std::endl;
+                }
+                else{
+                    std::cout<<"Esta fuera"<<std::endl;
+                }
             }
         }
 

@@ -11,6 +11,7 @@ public:
     sf::Vector2f position_get();
     int asignation(int type, int index);
     sf::Sprite draw();
+    sf::Vector2f rect();
     protected:
     sf::Sprite Base;
     private:

@@ -11,6 +11,7 @@ public:
     void move_position(sf::Vector2i destino);
     void change_state(char new_state); //indicador de estado para uso de sprite
     void asignation(int name);
+    int inside(sf::Vector2i medicion);
     sf::Sprite sprite();
     private:
     void change_im();

@@ -66,3 +66,16 @@
     sf::Sprite figura::sprite(){
         return objeto[current_im].draw();
     }
+    //Deteccion de si un punto se encuentra dentro de la figura
+     int figura::inside(sf::Vector2i medicion){
+        sf::Vector2f centro=get_position();
+        sf::Vector2f rect=objeto[0].rect();
+        float uperBound= centro.y+rect.y;
+        float lowerBound= centro.y-rect.y;
+        float rightBound= centro.x+rect.x;
+        float leftBound= centro.x-rect.x;
+
+        if(uperBound>medicion.y&&lowerBound<medicion.y&&rightBound>medicion.x&&leftBound<medicion.x)  return 1;
+        else return 0;
+
+     }
