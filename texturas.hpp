@@ -8,8 +8,10 @@ public:
     figura(int name); //declaracion de un objeto en la pantalla
     sf::Vector2f get_position();  //coordenadas del objeto
     void move_position(sf::Vector2f destino);      //movimiento del objeto
+    void move_position(sf::Vector2i destino);
     void change_state(char new_state); //indicador de estado para uso de sprite
     void asignation(int name);
+    sf::Sprite sprite();
     private:
     void change_im();
     int current_im; //imagen actual a seleccionar del arreglo

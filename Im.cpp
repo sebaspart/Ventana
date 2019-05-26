@@ -45,10 +45,16 @@
         Base.setPosition(position);
 
     }
+    void Im::position_set(sf::Vector2i position){
+        Base.setPosition(position.x,position.y);
+
+    }
     sf::Vector2f Im::position_get(){
         return Base.getPosition();
 
     }
+
+    //Seleccion de sprites para manejo de un personaje u objeto
     int Im::asignation(int type, int index){
     if(type ==0){
             //imagen raiz
@@ -70,7 +76,28 @@
             }
 
     }
+    if(type==1){
+        if(!Imagen.loadFromFile("morg.JPG")){
+            return -1;
+            }
+            switch (index){
+        case 0:
+            Base.setTexture(Imagen);
+        Base.setPosition(200,150);
+        Base.setTextureRect(sf::IntRect(128,128,64,64));
+        {sf::Vector2f centro;
+        centro.x=Base.getTextureRect().width/2.f;
+        centro.y=Base.getTextureRect().height/2.f;
+        Base.setOrigin(centro);
+        }
+
+            }
+
+    }
 
 
     return 0;
+    }
+    sf::Sprite Im::draw(){
+        return Base;
     }

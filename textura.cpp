@@ -16,6 +16,9 @@
     void figura::move_position(sf::Vector2f destino){
         objeto[0].position_set(destino);
     }
+     void figura::move_position(sf::Vector2i destino){
+        objeto[0].position_set(destino);
+    }
     void figura::change_color(){
         if(state=='h'){ //caminando
             objeto[current_im].recolor('h'); //h= heal= verde
@@ -56,5 +59,10 @@
     }
     //cambio de sprite  pendiente asignar el resto de valores del vector al 24/05/19 a las 9:11 pm
     void figura::asignation(int name){
-        objeto[1].asignation(name,0);
+        objeto[0].asignation(name,0);
+        current_im=0;
+    }
+    //regresar sprite a dibujar
+    sf::Sprite figura::sprite(){
+        return objeto[current_im].draw();
     }
