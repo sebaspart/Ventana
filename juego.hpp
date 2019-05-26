@@ -2,10 +2,11 @@
 #define JUEGO_HPP
 
 class juego{
+	public:
 
 
 
-
+	private:
 
 };
 
