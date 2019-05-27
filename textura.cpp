@@ -16,6 +16,7 @@
     void figura::move_position(sf::Vector2f destino){
         objeto[0].position_set(destino);
     }
+
     void figura::move_position(sf::Vector2i destino){
         objeto[0].position_set(destino);
     }

@@ -99,6 +99,8 @@
     sf::Sprite Im::draw(){
         return Base;
     }
+
+
     sf::Vector2f Im::rect(){
         sf::Vector2f bounds;
         bounds.x=Base.getTextureRect().width/2.f;
