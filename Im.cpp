@@ -3,6 +3,7 @@
     Im::Im(){
         asignation(0,0);
         inicial=Base.getColor();
+        factor=1.f;
     }
 
     //tipo de objeto e indice de imagen del objeto
@@ -41,6 +42,13 @@
         }
 
     }
+
+    void Im::set_scale(float fact){
+        Base.setScale(fact,fact);
+        factor=fact;
+
+    }
+
     void Im::position_set(sf::Vector2f position){
         Base.setPosition(position);
 
@@ -103,7 +111,7 @@
 
     sf::Vector2f Im::rect(){
         sf::Vector2f bounds;
-        bounds.x=Base.getTextureRect().width/2.f;
-        bounds.y=Base.getTextureRect().height/2.f;
+        bounds.x=Base.getTextureRect().width/2.f*factor;
+        bounds.y=Base.getTextureRect().height/2.f*factor;
         return bounds;
     }

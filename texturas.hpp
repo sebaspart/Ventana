@@ -13,12 +13,12 @@ public:
     void asignation(int name);
     int inside(sf::Vector2i medicion);
     sf::Sprite sprite();
+    void set_scale(float fact);
     private:
     void change_im();
     int current_im; //imagen actual a seleccionar del arreglo
     void change_color();
     char state;
-    protected:
     Im objeto[4];               //arreglo de sprites para animaciones u otros usos
 };
 

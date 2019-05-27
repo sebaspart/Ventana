@@ -42,6 +42,12 @@
         change_color();
 
     }
+
+    void figura::set_scale(float fact){
+        //aplicar a todos los sprites
+        objeto[0].set_scale(fact);
+    }
+
     void figura::change_im(){
         if(state=='w'){ //caminando
             current_im=3;

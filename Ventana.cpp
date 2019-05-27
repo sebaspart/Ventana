@@ -5,6 +5,7 @@
 #include "texturas.hpp"
 int main()
 {
+    float i=1.f;
     figura cuadro(0);
     figura rombo(1);
     sf::RenderWindow window(sf::VideoMode(800,630,32),"Juego",sf::Style::Close);
@@ -52,6 +53,13 @@ int main()
                 cuadro.move_position(Position);
               }
 
+                if(sf::Keyboard::isKeyPressed(sf::Keyboard::M)){
+                cuadro.set_scale(i+=0.5);
+              }
+
+                if(sf::Keyboard::isKeyPressed(sf::Keyboard::N)){
+                cuadro.set_scale(i-=0.5);
+              }
             window.draw(cuadro.sprite());
             window.draw(rombo.sprite());
             window.display();
