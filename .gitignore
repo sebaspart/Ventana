@@ -6,3 +6,8 @@ obj/Debug/Im.o
 obj/Debug/textura.o
 obj/Debug/Ventana.o
 Ventana.depend
+*.layout
+*.depend
+*.o
+*.o
+*.o
