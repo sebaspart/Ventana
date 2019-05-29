@@ -1,8 +1,9 @@
 # depslib dependency file v1.0
-1558753336 source:c:\users\sebas\documents\ventana sfml\ventana\ventana.cpp
+1559100955 source:c:\users\sebas\documents\ventana sfml\ventana\ventana.cpp
 	<SFML/Window.hpp>
 	<SFML/Graphics.hpp>
 	<iostream>
+	"texturas.hpp"
 
 1525815618 c:\sfml-2.5.1-windows-gcc-5.1.0-tdm-32-bit\sfml-2.5.1\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -822,16 +823,16 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1558753789 source:c:\users\sebas\documents\ventana sfml\ventana\im.cpp
+1559101071 source:c:\users\sebas\documents\ventana sfml\ventana\im.cpp
 	"Im.hpp"
 
-1558752533 c:\users\sebas\documents\ventana sfml\ventana\im.hpp
+1559096893 c:\users\sebas\documents\ventana sfml\ventana\im.hpp
 	<SFML/Graphics.hpp>
 
-1558753665 source:c:\users\sebas\documents\ventana sfml\ventana\textura.cpp
+1559099548 source:c:\users\sebas\documents\ventana sfml\ventana\textura.cpp
 	"texturas.hpp"
 
-1558753593 c:\users\sebas\documents\ventana sfml\ventana\texturas.hpp
+1559099548 c:\users\sebas\documents\ventana sfml\ventana\texturas.hpp
 	"Im.hpp"
 	<SFML/Graphics.hpp>
 

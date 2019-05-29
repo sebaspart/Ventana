@@ -15,10 +15,12 @@
     //movimiento del objeto
     void figura::move_position(sf::Vector2f destino){
         objeto[0].position_set(destino);
+        objeto[1].position_set(destino);
     }
 
     void figura::move_position(sf::Vector2i destino){
         objeto[0].position_set(destino);
+        objeto[1].position_set(destino);
     }
     void figura::change_color(){
         if(state=='h'){ //caminando
@@ -46,17 +48,18 @@
     void figura::set_scale(float fact){
         //aplicar a todos los sprites
         objeto[0].set_scale(fact);
+        objeto[1].set_scale(fact);
     }
 
     void figura::change_im(){
         if(state=='w'){ //caminando
-            current_im=3;
-        }
-        else if(state=='m'){ //muerto
             current_im=1;
         }
+        else if(state=='m'){ //muerto
+            current_im=0;
+        }
         else if(state=='d'){  //daño
-            current_im=2;
+            current_im=1;
         }
         else{               //vivo o curacion
             current_im=0;
@@ -67,6 +70,7 @@
     //cambio de sprite  pendiente asignar el resto de valores del vector al 24/05/19 a las 9:11 pm
     void figura::asignation(int name){
         objeto[0].asignation(name,0);
+        objeto[1].asignation(name,1);
         current_im=0;
     }
     //regresar sprite a dibujar

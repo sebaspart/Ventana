@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 class figura{
 public:
+
     figura();
     figura(int name); //declaracion de un objeto en la pantalla
     sf::Vector2f get_position();  //coordenadas del objeto
@@ -19,7 +20,7 @@ public:
     int current_im; //imagen actual a seleccionar del arreglo
     void change_color();
     char state;
-    Im objeto[4];               //arreglo de sprites para animaciones u otros usos
+    Im objeto[2];               //arreglo de sprites para animaciones u otros usos
 };
 
 #endif // TEXTURAS_HPP

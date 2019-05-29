@@ -15,7 +15,7 @@ public:
     sf::Vector2f rect();
     private:
     sf::Sprite Base;
-    sf::Texture Imagen;
+    sf::Texture Imagen[2];
     sf::Color inicial;
     float factor;
 };
