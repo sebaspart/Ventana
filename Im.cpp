@@ -69,6 +69,11 @@
 
     }
 
+
+    void Im::position_move(float x, float y){
+        Base.move(x,y);
+    }
+
                             //  PERSONAJES
 
 

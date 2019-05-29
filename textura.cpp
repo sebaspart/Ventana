@@ -22,26 +22,39 @@
         objeto[0].position_set(destino);
         objeto[1].position_set(destino);
     }
-    void figura::change_color(){
+    void figura::move_offset(float x, float y){
+        objeto[0].position_move(x,y);
+        objeto[1].position_move(x,y);
+
+    }
+
+
+
+    int figura::change_color(){
         if(state=='h'){ //caminando
             objeto[current_im].recolor('h'); //h= heal= verde
+            return 0;
         }
         else if(state=='m'){ //muerto
             objeto[current_im].recolor('g'); //gris
+            return 0;
         }
         else if(state=='d'){  //daño
             objeto[current_im].recolor('r'); //rojo
+            return 1;
         }
         else{               //vivo o caminando
             objeto[current_im].recolor('n'); //normal
+            return 0;
         }
+
 
     }
     //indicador de estado para uso de sprite
-    void figura::change_state(char new_state){
+    int figura::change_state(char new_state){
         state=new_state;
         change_im();
-        change_color();
+         return change_color();
 
     }
 

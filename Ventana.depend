@@ -836,22 +836,22 @@
 	"Im.hpp"
 	<SFML/Graphics.hpp>
 
-1559108986 source:c:\users\seb\documents\github\ventana\textura.cpp
+1559150610 source:c:\users\seb\documents\github\ventana\textura.cpp
 	"texturas.hpp"
 
-1559108986 c:\users\seb\documents\github\ventana\texturas.hpp
+1559149622 c:\users\seb\documents\github\ventana\texturas.hpp
 	"Im.hpp"
 	<SFML/Graphics.hpp>
 
-1559108984 c:\users\seb\documents\github\ventana\im.hpp
+1559150294 c:\users\seb\documents\github\ventana\im.hpp
 	<SFML/Graphics.hpp>
 
-1559108985 source:c:\users\seb\documents\github\ventana\ventana.cpp
+1559150525 source:c:\users\seb\documents\github\ventana\ventana.cpp
 	<SFML/Window.hpp>
 	<SFML/Graphics.hpp>
 	<iostream>
 	"texturas.hpp"
 
-1559147482 source:c:\users\seb\documents\github\ventana\im.cpp
+1559150294 source:c:\users\seb\documents\github\ventana\im.cpp
 	"Im.hpp"
 

@@ -13,6 +13,7 @@ int main()
     figura female(11);
     sf::RenderWindow window(sf::VideoMode(800,630,32),"Juego",sf::Style::Close);
     window.setVerticalSyncEnabled(true); //freeSinc
+    int i=0;
      //loop de ventana
         while(window.isOpen())
         {
@@ -29,7 +30,7 @@ int main()
                     break;
                   case sf::Event::MouseButtonPressed:
                     if(event.mouseButton.button==sf::Mouse::Right){
-                      rombo.move_position(Position);
+                      //rombo.move_position(Position);
 
                     }
                     if(event.mouseButton.button==sf::Mouse::Left){
@@ -40,6 +41,16 @@ int main()
                      //reescalado de la pantalla y cambio de coordenadas internas  *no completo*
                   case sf::Event::Resized:
                         window.setView(sf::View(sf::FloatRect (0.f,0.f,event.size.width,event.size.height)));
+
+                  case sf::Event::KeyPressed:
+                        if(event.KeyPressed==sf::Keyboard::M){
+                rombo.change_state('d');
+                cuadro.change_state('d');
+                knigth.change_state('d');
+                i= cleric.change_state('d');
+                rogue.change_state('d');
+                female.change_state('d');
+                        }
 
                   default:
                     break;
@@ -81,14 +92,14 @@ int main()
                 female.move_position(Position);
               }
 
-                if(sf::Keyboard::isKeyPressed(sf::Keyboard::M)){
+                /*if(sf::Keyboard::isKeyPressed(sf::Keyboard::M)){
                 rombo.change_state('d');
                 cuadro.change_state('d');
                 knigth.change_state('d');
-                cleric.change_state('d');
+                i= cleric.change_state('d');
                 rogue.change_state('d');
                 female.change_state('d');
-              }
+              }  */
 
                 if(sf::Keyboard::isKeyPressed(sf::Keyboard::N)){
                  rombo.change_state('m');
@@ -109,6 +120,23 @@ int main()
 
 
              window.clear(sf::Color(180,200,255));
+             if (i){
+                if (i==1){
+                    cleric.move_offset(10,0);
+
+                }
+                if (i==5){
+                    cleric.move_offset(-20,0);
+
+                }
+                i++;
+                if(i==10){
+                    cleric.move_offset(10,0);
+                    i=0;
+                }
+
+             }
+
             window.draw(cuadro.sprite());
             window.draw(rombo.sprite());
             window.draw(knigth.sprite());
