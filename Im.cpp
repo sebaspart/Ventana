@@ -307,6 +307,296 @@
 
                     //  VILLANOS
 
+        //           TIPO 6         CYCLOPS
+        if(type==6){
+            if(!Imagen[0].loadFromFile("Imagenes/Monsters/monster_49.png")){
+            return -1;
+            }
+                if(!Imagen[1].loadFromFile("Imagenes/Monsters/monster_49.png")){
+            return -1;
+            }
+
+            switch (index){
+        case 0:
+            Base.setTexture(Imagen[0]);
+        Base.setPosition(200,150);
+        Base.setTextureRect(sf::IntRect(16,0,15,15));
+        {sf::Vector2f centro;
+        centro.x=Base.getTextureRect().width/2.f;
+        centro.y=Base.getTextureRect().height/2.f;
+        Base.setOrigin(centro);
+        }
+        set_scale(3);
+        break;
+        case 1:
+            Base.setTexture(Imagen[1]);
+        Base.setPosition(200,150);
+        Base.setTextureRect(sf::IntRect(16,0,15,15));
+        {sf::Vector2f centro;
+        centro.x=Base.getTextureRect().width/2.f;
+        centro.y=Base.getTextureRect().height/2.f;
+        Base.setOrigin(centro);
+        }
+        set_scale(-3);
+        break;
+
+            }
+
+    }
+       //           TIPO 7         GHOST
+        if(type==7){
+            if(!Imagen[0].loadFromFile("Imagenes/Monsters/monster_34.png")){
+            return -1;
+            }
+                if(!Imagen[1].loadFromFile("Imagenes/Monsters/monster_34.png")){
+            return -1;
+            }
+
+            switch (index){
+        case 0:
+            Base.setTexture(Imagen[0]);
+        Base.setPosition(200,150);
+        Base.setTextureRect(sf::IntRect(0,0,15,15));
+        {sf::Vector2f centro;
+        centro.x=Base.getTextureRect().width/2.f;
+        centro.y=Base.getTextureRect().height/2.f;
+        Base.setOrigin(centro);
+        }
+        set_scale(3);
+        break;
+        case 1:
+            Base.setTexture(Imagen[1]);
+        Base.setPosition(200,150);
+        Base.setTextureRect(sf::IntRect(16,0,15,15));
+        {sf::Vector2f centro;
+        centro.x=Base.getTextureRect().width/2.f;
+        centro.y=Base.getTextureRect().height/2.f;
+        Base.setOrigin(centro);
+        }
+        set_scale(-3);
+        break;
+
+            }
+
+    }
+           //           TIPO 8         IMP (DIABLILLO)
+        if(type==8){
+            if(!Imagen[0].loadFromFile("Imagenes/Monsters/monster_48.png")){
+            return -1;
+            }
+                if(!Imagen[1].loadFromFile("Imagenes/Monsters/monster_48.png")){
+            return -1;
+            }
+
+            switch (index){
+        case 0:
+            Base.setTexture(Imagen[0]);
+        Base.setPosition(200,150);
+        Base.setTextureRect(sf::IntRect(0,0,15,15));
+        {sf::Vector2f centro;
+        centro.x=Base.getTextureRect().width/2.f;
+        centro.y=Base.getTextureRect().height/2.f;
+        Base.setOrigin(centro);
+        }
+        set_scale(3);
+        break;
+        case 1:
+            Base.setTexture(Imagen[1]);
+        Base.setPosition(200,150);
+        Base.setTextureRect(sf::IntRect(16,0,15,15));
+        {sf::Vector2f centro;
+        centro.x=Base.getTextureRect().width/2.f;
+        centro.y=Base.getTextureRect().height/2.f;
+        Base.setOrigin(centro);
+        }
+        set_scale(-3);
+        break;
+
+            }
+
+    }
+
+           //           TIPO 9         DARK KNIGHT
+        if(type==9){
+            if(!Imagen[0].loadFromFile("Imagenes/Monsters/monster_112.png")){
+            return -1;
+            }
+                if(!Imagen[1].loadFromFile("Imagenes/Monsters/monster_112.png")){
+            return -1;
+            }
+
+            switch (index){
+        case 0:
+            Base.setTexture(Imagen[0]);
+        Base.setPosition(200,150);
+        Base.setTextureRect(sf::IntRect(0,0,15,15));
+        {sf::Vector2f centro;
+        centro.x=Base.getTextureRect().width/2.f;
+        centro.y=Base.getTextureRect().height/2.f;
+        Base.setOrigin(centro);
+        }
+        set_scale(3);
+        break;
+        case 1:
+            Base.setTexture(Imagen[1]);
+        Base.setPosition(200,150);
+        Base.setTextureRect(sf::IntRect(16,0,15,15));
+        {sf::Vector2f centro;
+        centro.x=Base.getTextureRect().width/2.f;
+        centro.y=Base.getTextureRect().height/2.f;
+        Base.setOrigin(centro);
+        }
+        set_scale(-3);
+        break;
+
+            }
+
+    }
+           //           TIPO 10         DARK MAGE
+        if(type==10){
+            if(!Imagen[0].loadFromFile("Imagenes/Monsters/monster_104.png")){
+            return -1;
+            }
+                if(!Imagen[1].loadFromFile("Imagenes/Monsters/monster_104.png")){
+            return -1;
+            }
+
+            switch (index){
+        case 0:
+            Base.setTexture(Imagen[0]);
+        Base.setPosition(200,150);
+        Base.setTextureRect(sf::IntRect(0,0,15,15));
+        {sf::Vector2f centro;
+        centro.x=Base.getTextureRect().width/2.f;
+        centro.y=Base.getTextureRect().height/2.f;
+        Base.setOrigin(centro);
+        }
+        set_scale(3);
+        break;
+        case 1:
+            Base.setTexture(Imagen[1]);
+        Base.setPosition(200,150);
+        Base.setTextureRect(sf::IntRect(16,0,15,15));
+        {sf::Vector2f centro;
+        centro.x=Base.getTextureRect().width/2.f;
+        centro.y=Base.getTextureRect().height/2.f;
+        Base.setOrigin(centro);
+        }
+        set_scale(3);
+        break;
+
+            }
+
+    }
+           //           TIPO 11        EGG THING
+        if(type==11){
+            if(!Imagen[0].loadFromFile("Imagenes/Monsters/monster_85.png")){
+            return -1;
+            }
+                if(!Imagen[1].loadFromFile("Imagenes/Monsters/monster_85.png")){
+            return -1;
+            }
+
+            switch (index){
+        case 0:
+            Base.setTexture(Imagen[0]);
+        Base.setPosition(200,150);
+        Base.setTextureRect(sf::IntRect(0,0,15,15));
+        {sf::Vector2f centro;
+        centro.x=Base.getTextureRect().width/2.f;
+        centro.y=Base.getTextureRect().height/2.f;
+        Base.setOrigin(centro);
+        }
+        set_scale(3);
+        break;
+        case 1:
+            Base.setTexture(Imagen[1]);
+        Base.setPosition(200,150);
+        Base.setTextureRect(sf::IntRect(16,0,15,15));
+        {sf::Vector2f centro;
+        centro.x=Base.getTextureRect().width/2.f;
+        centro.y=Base.getTextureRect().height/2.f;
+        Base.setOrigin(centro);
+        }
+        set_scale(-3);
+        break;
+
+            }
+
+    }
+           //           TIPO 12         SWAMP MONSTER
+        if(type==12){
+            if(!Imagen[0].loadFromFile("Imagenes/Monsters/monster_84.png")){
+            return -1;
+            }
+                if(!Imagen[1].loadFromFile("Imagenes/Monsters/monster_84.png")){
+            return -1;
+            }
+
+            switch (index){
+        case 0:
+            Base.setTexture(Imagen[0]);
+        Base.setPosition(200,150);
+        Base.setTextureRect(sf::IntRect(0,0,15,15));
+        {sf::Vector2f centro;
+        centro.x=Base.getTextureRect().width/2.f;
+        centro.y=Base.getTextureRect().height/2.f;
+        Base.setOrigin(centro);
+        }
+        set_scale(3);
+        break;
+        case 1:
+            Base.setTexture(Imagen[1]);
+        Base.setPosition(200,150);
+        Base.setTextureRect(sf::IntRect(16,0,15,15));
+        {sf::Vector2f centro;
+        centro.x=Base.getTextureRect().width/2.f;
+        centro.y=Base.getTextureRect().height/2.f;
+        Base.setOrigin(centro);
+        }
+        set_scale(-3);
+        break;
+
+            }
+
+    }
+           //           TIPO 13        BEE
+        if(type==13){
+            if(!Imagen[0].loadFromFile("Imagenes/Monsters/monster_25.png")){
+            return -1;
+            }
+                if(!Imagen[1].loadFromFile("Imagenes/Monsters/monster_25.png")){
+            return -1;
+            }
+
+            switch (index){
+        case 0:
+            Base.setTexture(Imagen[0]);
+        Base.setPosition(200,150);
+        Base.setTextureRect(sf::IntRect(0,0,15,15));
+        {sf::Vector2f centro;
+        centro.x=Base.getTextureRect().width/2.f;
+        centro.y=Base.getTextureRect().height/2.f;
+        Base.setOrigin(centro);
+        }
+        set_scale(3);
+        break;
+        case 1:
+            Base.setTexture(Imagen[1]);
+        Base.setPosition(200,150);
+        Base.setTextureRect(sf::IntRect(16,0,15,15));
+        {sf::Vector2f centro;
+        centro.x=Base.getTextureRect().width/2.f;
+        centro.y=Base.getTextureRect().height/2.f;
+        Base.setOrigin(centro);
+        }
+        set_scale(-3);
+        break;
+
+            }
+
+    }
+
 
     return 0;
     }

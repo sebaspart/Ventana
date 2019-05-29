@@ -5,12 +5,12 @@
 #include "texturas.hpp"
 int main()
 {
-    figura knigth(0);
-    figura cuadro(1);
-    figura rombo(2);
-    figura cleric(3);
-    figura rogue(4);
-    figura female(5);
+    figura knigth(12);
+    figura cuadro(13);
+    figura rombo(8);
+    figura cleric(9);
+    figura rogue(10);
+    figura female(11);
     sf::RenderWindow window(sf::VideoMode(800,630,32),"Juego",sf::Style::Close);
     window.setVerticalSyncEnabled(true); //freeSinc
      //loop de ventana
