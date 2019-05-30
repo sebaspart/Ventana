@@ -7,11 +7,14 @@
     //declaracion de un objeto en la pantalla
     figura::figura(int name){
             asignation(name);
+            main_poss=get_position();
     }
      //coordenadas del objeto
+
     sf::Vector2f figura::get_position(){
-        return objeto[0].position_get();
+    return objeto[0].position_get();
     }
+
     //movimiento del objeto
     void figura::move_position(sf::Vector2f destino){
         objeto[0].position_set(destino);
@@ -28,6 +31,26 @@
 
     }
 
+    void figura::damage_im(){
+
+        if(damage_true){
+        move_offset(20,0);
+        damage_true=0;
+        damage_clk.restart();
+        }
+        sf::Time elapsed1= damage_clk.getElapsedTime();
+
+        if(elapsed1.asSeconds()<0.2&&elapsed1.asSeconds()>0.1){
+            move_offset(-5,0);
+        }
+        if (elapsed1.asSeconds()>0.3&&elapsed1.asSeconds()<0.4){
+            move_position(main_poss);
+        }
+
+
+    }
+
+
 
 
     int figura::change_color(){
@@ -41,6 +64,8 @@
         }
         else if(state=='d'){  //daño
             objeto[current_im].recolor('r'); //rojo
+            main_poss=get_position();
+            damage_true=1;
             return 1;
         }
         else{               //vivo o caminando
@@ -88,6 +113,7 @@
     }
     //regresar sprite a dibujar
     sf::Sprite figura::sprite(){
+        damage_im();
         return objeto[current_im].draw();
     }
     //Deteccion de si un punto se encuentra dentro de la figura

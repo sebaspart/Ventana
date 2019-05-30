@@ -5,15 +5,14 @@
 #include "texturas.hpp"
 int main()
 {
-    figura knigth(12);
-    figura cuadro(13);
+    figura knigth(13);
+    figura cuadro(7);
     figura rombo(8);
     figura cleric(9);
     figura rogue(10);
     figura female(11);
     sf::RenderWindow window(sf::VideoMode(800,630,32),"Juego",sf::Style::Close);
     window.setVerticalSyncEnabled(true); //freeSinc
-    int i=0;
      //loop de ventana
         while(window.isOpen())
         {
@@ -43,11 +42,11 @@ int main()
                         window.setView(sf::View(sf::FloatRect (0.f,0.f,event.size.width,event.size.height)));
 
                   case sf::Event::KeyPressed:
-                        if(event.KeyPressed==sf::Keyboard::M){
+                        if(event.key.code==sf::Keyboard::M){
                 rombo.change_state('d');
                 cuadro.change_state('d');
                 knigth.change_state('d');
-                i= cleric.change_state('d');
+                cleric.change_state('d');
                 rogue.change_state('d');
                 female.change_state('d');
                         }
@@ -120,22 +119,7 @@ int main()
 
 
              window.clear(sf::Color(180,200,255));
-             if (i){
-                if (i==1){
-                    cleric.move_offset(10,0);
 
-                }
-                if (i==5){
-                    cleric.move_offset(-20,0);
-
-                }
-                i++;
-                if(i==10){
-                    cleric.move_offset(10,0);
-                    i=0;
-                }
-
-             }
 
             window.draw(cuadro.sprite());
             window.draw(rombo.sprite());
