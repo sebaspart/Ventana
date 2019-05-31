@@ -97,6 +97,7 @@
 
                 //caso 1 de figura
                 Base.setTexture(Imagen[0]);
+                Base.setPosition(300,150);
                 Base.setTextureRect(sf::IntRect(0,2,15,15));
                 {sf::Vector2f centro;
                 centro.x=Base.getTextureRect().width/2.f;

@@ -820,7 +820,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1559268685 source:c:\users\sebas\documents\ventana sfml\ventana\im.cpp
+1559281556 source:c:\users\sebas\documents\ventana sfml\ventana\im.cpp
 	"Im.hpp"
 
 1559268683 c:\users\sebas\documents\ventana sfml\ventana\im.hpp
@@ -852,10 +852,10 @@
 1559242511 source:c:\users\seb\documents\github\ventana\im.cpp
 	"Im.hpp"
 
-1559276413 source:c:\users\sebas\documents\ventana sfml\ventana\juego.cpp
+1559281125 source:c:\users\sebas\documents\ventana sfml\ventana\juego.cpp
 	"juego.hpp"
 
-1559276526 c:\users\sebas\documents\ventana sfml\ventana\juego.hpp
+1559281296 c:\users\sebas\documents\ventana sfml\ventana\juego.hpp
 	<SFML/Graphics.hpp>
 	<SFML/Window.hpp>
 	"texturas.hpp"

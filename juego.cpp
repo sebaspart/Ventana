@@ -15,12 +15,9 @@ juego::juego(int ressx,int ressy,std::string name){
 
 void juego::gameloop(){
     while(window.isOpen()){
-            sf::Time elapsed1= delay.getElapsedTime();
-    if(elapsed1.asMilliseconds()>3){
+
         eventos();
         drawing();
-        delay.restart();
-    }
 
 
     }
@@ -46,7 +43,7 @@ void juego::eventos(){
                 break;
                 case sf::Event::KeyPressed:
                     if(event.key.code==sf::Keyboard::X){
-                        addFigure(3);
+                        addFigure(figuras[0].im_type,figuras[0].get_state(),figuras[0].get_position());
 
                     }
                     if(event.key.code==sf::Keyboard::M){
@@ -135,18 +132,19 @@ void juego::addImage(int name){
 }
 
 void juego::addFigure(int type,char new_state,sf::Vector2f possition){
-    figuras.resize(figuras.size()+1);
+    if(figuras.size()) coppyFig();
+    else figuras.resize(1);
     figuras[figuras.size()-1].coppy(type,new_state,possition);
 }
 void juego::addImage(int type,char new_state,sf::Vector2f possition){
-    imagenes.resize(imagenes.size()+1);
+    if(imagenes.size()) coppyIm();
+    else imagenes.resize(1);
     imagenes[imagenes.size()-1].coppy(type,new_state,possition);
 }
 
 void juego::drawing(){
     window.clear();
     size_t i=0;
-    //std::cout<<imagenes.size()<<std::endl;
     while(i<imagenes.size()){
         window.draw(imagenes[i].sprite());
         i++;

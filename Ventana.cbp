@@ -51,6 +51,7 @@
 		<Unit filename="Im.cpp" />
 		<Unit filename="Im.hpp" />
 		<Unit filename="Ventana.cpp" />
+		<Unit filename="juego.cpp" />
 		<Unit filename="juego.hpp" />
 		<Unit filename="textura.cpp" />
 		<Unit filename="texturas.hpp" />
