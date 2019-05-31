@@ -1,14 +1,34 @@
 #include "texturas.hpp"
 
     figura::figura(){
+        //Creacion basica de un objeto cualquiera
             asignation(0);
-            //pendiente 24/05/2019 asignar los otros puntos del vector de sprites
+            main_poss=get_position();
+            anim_on=0;
+            damage_true=0;
+
     }
     //declaracion de un objeto en la pantalla
     figura::figura(int name){
             asignation(name);
             main_poss=get_position();
+            anim_on=0;
+            damage_true=0;
     }
+
+    //Copia de la figura
+    void figura::coppy(int type,char new_state,sf::Vector2f possition){
+        asignation(type);
+        state=new_state;
+        change_state(state);
+        move_position(possition);
+    }
+
+    char figura::get_state(){
+
+    return state;
+    }
+
      //coordenadas del objeto
 
     sf::Vector2f figura::get_position(){
@@ -40,11 +60,12 @@
         }
         sf::Time elapsed1= damage_clk.getElapsedTime();
 
-        if(elapsed1.asSeconds()<0.2&&elapsed1.asSeconds()>0.1){
+        if(elapsed1.asSeconds()<0.2&&elapsed1.asSeconds()>0.1&&anim_on){
             move_offset(-5,0);
         }
-        if (elapsed1.asSeconds()>0.3&&elapsed1.asSeconds()<0.4){
+        if (elapsed1.asSeconds()>0.3&&elapsed1.asSeconds()<0.4&&anim_on){
             move_position(main_poss);
+            anim_on=0;
         }
 
 
@@ -53,30 +74,27 @@
 
 
 
-    int figura::change_color(){
-        if(state=='h'){ //caminando
+    void figura::change_color(){
+        if(state=='h'){ //Curacion
             objeto[current_im].recolor('h'); //h= heal= verde
-            return 0;
         }
-        else if(state=='m'){ //muerto
+        else if(state=='m'){ //Muerto
             objeto[current_im].recolor('g'); //gris
-            return 0;
         }
-        else if(state=='d'){  //daño
+        else if(state=='d'){  //Daño
             objeto[current_im].recolor('r'); //rojo
             main_poss=get_position();
+            anim_on=1;
             damage_true=1;
-            return 1;
         }
         else{               //vivo o caminando
             objeto[current_im].recolor('n'); //normal
-            return 0;
         }
 
 
     }
     //indicador de estado para uso de sprite
-    int figura::change_state(char new_state){
+    void figura::change_state(char new_state){
         state=new_state;
         change_im();
          return change_color();
@@ -105,13 +123,17 @@
 
 
     }
-    //cambio de sprite  pendiente asignar el resto de valores del vector al 24/05/19 a las 9:11 pm
+    //Asignacion de imagen al objeto (0) vista de frente (1) vista de lado
+    //En caso de imagen solo declarar o usar uno
+
     void figura::asignation(int name){
         objeto[0].asignation(name,0);
         objeto[1].asignation(name,1);
+        im_type=name;
         current_im=0;
     }
-    //regresar sprite a dibujar
+
+    //Regresar sprite a dibujar
     sf::Sprite figura::sprite(){
         damage_im();
         return objeto[current_im].draw();

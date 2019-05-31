@@ -1,5 +1,4 @@
 #include "Im.hpp"
-
     Im::Im(){
         asignation(0,0);
         inicial=Base.getColor();
