@@ -731,7 +731,106 @@
             }
         }
 
-    if(type<0||type>17){
+        if(type==18){
+            if(!Imagen[0].loadFromFile("Imagenes/main.png")){
+            return -1;
+            }
+                if(!Imagen[1].loadFromFile("Imagenes/main.png")){
+            return -1;
+            }
+            switch (index){
+            case 0:
+            Base.setTexture(Imagen[1]);
+            Base.setTextureRect(sf::IntRect(0,0,800,600));
+            Base.setScale(1,1);
+            Base.setPosition(10,8);
+                break;
+            case 1:
+            Base.setTexture(Imagen[1]);
+            Base.setTextureRect(sf::IntRect(0,0,800,600));
+            Base.setScale(1,1);
+            Base.setPosition(0,0);
+            break;
+            }
+
+
+        }
+        if(type==19){
+                if(!Imagen[0].loadFromFile("Imagenes/start.png")){
+            return -1;
+            }
+                if(!Imagen[1].loadFromFile("Imagenes/start.png")){
+            return -1;
+            }
+             switch (index){
+            case 0:
+            Base.setTexture(Imagen[1]);
+
+             Base.setTextureRect(sf::IntRect(9,74,237,108));
+             {sf::Vector2f centro;
+        centro.x=Base.getTextureRect().width/2.f;
+        centro.y=Base.getTextureRect().height/2.f;
+        Base.setOrigin(centro);
+        }
+            set_scale(1);
+            Base.setPosition(233,232);
+
+                break;
+            case 1:
+            Base.setTexture(Imagen[1]);
+             Base.setTextureRect(sf::IntRect(9,74,237,108));
+             {sf::Vector2f centro;
+        centro.x=Base.getTextureRect().width/2.f;
+        centro.y=Base.getTextureRect().height/2.f;
+        Base.setOrigin(centro);
+        }
+            Base.setPosition(233,232);
+            set_scale(1);
+            break;
+            }
+
+
+        }
+
+        if(type==20){
+                if(!Imagen[0].loadFromFile("Imagenes/SALIR.png")){
+            return -1;
+            }
+                if(!Imagen[1].loadFromFile("Imagenes/SALIR.png")){
+            return -1;
+            }
+            switch (index){
+            case 0:
+            Base.setTexture(Imagen[1]);
+
+             Base.setTextureRect(sf::IntRect(13,74,231,108));
+             {sf::Vector2f centro;
+        centro.x=Base.getTextureRect().width/2.f;
+        centro.y=Base.getTextureRect().height/2.f;
+        Base.setOrigin(centro);
+        }
+            Base.setPosition(527,232);
+            set_scale(1);
+                break;
+            case 1:
+            Base.setTexture(Imagen[1]);
+             Base.setTextureRect(sf::IntRect(13,74,231,108));
+             {sf::Vector2f centro;
+        centro.x=Base.getTextureRect().width/2.f;
+        centro.y=Base.getTextureRect().height/2.f;
+        Base.setOrigin(centro);
+        }
+            Base.setPosition(527,232);
+            set_scale(1);
+            break;
+            }
+
+
+        }
+
+
+        // Casos para evitar conflicto de OpenGL
+    if(type<0||type>21){
             if(!Imagen[0].loadFromFile("Imagenes/Human/Front/knight1.png")){
             return -1;
             }
@@ -768,7 +867,6 @@
     }
 
     }
-
 
 
 

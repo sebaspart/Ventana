@@ -2,10 +2,8 @@
 #include "juego.hpp"
 int main()
 {
-   juego game(800,600,"Pepito");
-   //game.addFigure(17);
-   //game.addImage(16);
-
+   juego game(800,600,"Ancient Dungeon");
+    game.start();
     game.personajes_select();
    game.gameloop();
 

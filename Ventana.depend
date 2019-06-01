@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1559376165 source:c:\users\sebas\documents\ventana sfml\ventana\ventana.cpp
+1559385702 source:c:\users\sebas\documents\ventana sfml\ventana\ventana.cpp
 	"juego.hpp"
 
 1525815618 c:\sfml-2.5.1-windows-gcc-5.1.0-tdm-32-bit\sfml-2.5.1\include\sfml\graphics.hpp
@@ -820,7 +820,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1559375765 source:c:\users\sebas\documents\ventana sfml\ventana\im.cpp
+1559385134 source:c:\users\sebas\documents\ventana sfml\ventana\im.cpp
 	"Im.hpp"
 
 1559268683 c:\users\sebas\documents\ventana sfml\ventana\im.hpp
@@ -852,10 +852,10 @@
 1559242511 source:c:\users\seb\documents\github\ventana\im.cpp
 	"Im.hpp"
 
-1559376780 source:c:\users\sebas\documents\ventana sfml\ventana\juego.cpp
+1559385502 source:c:\users\sebas\documents\ventana sfml\ventana\juego.cpp
 	"juego.hpp"
 
-1559377066 c:\users\sebas\documents\ventana sfml\ventana\juego.hpp
+1559384295 c:\users\sebas\documents\ventana sfml\ventana\juego.hpp
 	<SFML/Graphics.hpp>
 	<SFML/Window.hpp>
 	"texturas.hpp"

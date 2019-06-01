@@ -7,13 +7,16 @@ juego::juego(){
 }
 
 juego::juego(int ressx,int ressy,std::string name){
-    window.create(sf::VideoMode(ressx,ressy,32),name);
+    window.create(sf::VideoMode(ressx,ressy,32),name,sf::Style::Close);
     window.setVerticalSyncEnabled(true); //freeSinc
     window.setFramerateLimit(60);
 
 }
 
 void juego::gameloop(){
+    personajes[0].move_position(sf::Vector2f(30,30));
+    personajes[1].move_position(sf::Vector2f(120,30));
+    personajes[2].move_position(sf::Vector2f(210,30));
     while(window.isOpen()){
 
         eventos();
@@ -21,9 +24,38 @@ void juego::gameloop(){
 
 
     }
-
-
 }
+
+void juego::start(){
+    //CREACION DE LA FUENTE
+	sf::Font fuente;
+	sf::Text texto;
+	//CARGAMOS LA FUENTE TTF (ESTILO DE FUENTE)
+	fuente.loadFromFile("Imagenes/fuente1.ttf");
+	//ELEGIMOS EL ESTILO DE FUENTE
+	texto.setFont(fuente);
+	//DAMOS NOMBRE AL JUEGO
+	texto.setString("Ancient Dungeon");
+	texto.setPosition(250,50);
+	texto.setScale(1.f,2.f);
+	addImage(18);
+	addImage(19);
+	addImage(20);
+	int i=1;
+	int aux;
+	while(window.isOpen()&&i){
+        eventos();
+        aux=compare(imagenes);
+        if(aux==19)i=0;
+        if(aux==20)window.close();
+
+
+        drawing(texto);
+
+	}
+	imagenes.clear();
+}
+
 void juego::personajes_select(){
     size_t i=0;
     size_t fig=0;
@@ -61,12 +93,10 @@ void juego::personajes_select(){
     }
     i=0;
     while(i<3){
-            std::cout<<a[i]<<std::endl;
             if(a[i]<0){
 
             }
             else{
-            std::cout<<"entre"<<std::endl;
              addPersonaje(a[i]);
 
             }
@@ -79,23 +109,36 @@ void juego::personajes_select(){
 }
 
 int juego::compare(std::vector<figura> comparar){
-    size_t i=0;
+    size_t i=comparar.size();
 
     if(sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
                 sf::Vector2i localPosition = sf::Mouse::getPosition(window);
-    while (i<comparar.size()){
-        if( comparar[i].inside(localPosition)){
-                return comparar[i].im_type;
+    while (i>0){
+        if( comparar[i-1].inside(localPosition)){
+                return comparar[i-1].im_type;
             }
 
-        i+=1;
+        i-=1;
     }
+    }
+    return -1;
+}
+int juego::compare(figura comparar){
+
+    if(sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+                sf::Vector2i localPosition = sf::Mouse::getPosition(window);
+
+        if( comparar.inside(localPosition)){
+                return comparar.im_type;
+            }
+
+
     }
     return -1;
 }
 
 void juego::eventos(){
-    sf::Vector2i Position= sf::Mouse::getPosition(window);
+   // sf::Vector2i Position= sf::Mouse::getPosition(window);
         while(window.pollEvent(event))
         {
 
@@ -117,15 +160,15 @@ void juego::eventos(){
                     }
                     if(event.key.code==sf::Keyboard::M){
                         size_t i=0;
-                        while(i<figuras.size()){
-                        figuras[i].change_state('n');
+                        while(i<personajes.size()){
+                        personajes[i].change_state('n');
                         i++;
                         }
                     }
                     if(event.key.code==sf::Keyboard::A){
                         size_t i=0;
-                        while(i<figuras.size()){
-                        figuras[i].change_state('d');
+                        while(i<personajes.size()){
+                        personajes[i].change_state('d');
                         i++;
                         }
 
@@ -135,26 +178,18 @@ void juego::eventos(){
                 break;
             }
         }
-                if(sf::Keyboard::isKeyPressed(sf::Keyboard::C)){
-                    figuras[0].move_position(Position);
-              }
+                //if(sf::Keyboard::isKeyPressed(sf::Keyboard::C)){
+                    //imagenes[0].move_position(Position);
+              //}
 
-              if(sf::Mouse::isButtonPressed(sf::Mouse::Right)){
-                figuras[figuras.size()-1].move_position(Position);
+              //if(sf::Mouse::isButtonPressed(sf::Mouse::Right)){
+               // figuras[figuras.size()-1].move_position(Position);
 
-              }
-
-            //indicador de coordenadas al click izquierdo
-            if(sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-                sf::Vector2i localPosition = sf::Mouse::getPosition(window);
-                //if( figuras[0].inside(localPosition)){
-                    std::cout<<"Coordenada x: "<<localPosition.x<<std::endl<<"Coordenada y: "<<localPosition.y<<std::endl;
-                //}
-                //else{
-                    //std::cout<<"Esta fuera"<<std::endl;
-                //}
-            }
-
+              //}
+              //if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+               // std::cout<<"Coordenada x: "<<Position.x<<std::endl;
+               // std::cout<<"Coordenada y: "<<Position.y<<std::endl;
+              //}
 }
 
 void juego::coppyFig(){
@@ -174,7 +209,7 @@ void juego::coppyFig(){
 void juego::coppyIm(){
     help.resize(imagenes.size());
     size_t i=0;
-    while(i<figuras.size()){
+    while(i<imagenes.size()){
         help[i].coppy(imagenes[i].im_type,imagenes[i].get_state(),imagenes[i].get_position());
         i++;
     }
@@ -188,14 +223,14 @@ void juego::coppyIm(){
 }
 
 void juego::coppyPer(){
-    help.resize(imagenes.size());
+    help.resize(personajes.size());
     size_t i=0;
     while(i<personajes.size()){
         help[i].coppy(personajes[i].im_type,personajes[i].get_state(),personajes[i].get_position());
         i++;
     }
     i=0;
-    personajes.resize(imagenes.size()+1);
+    personajes.resize(personajes.size()+1);
      while(i<help.size()){
         personajes[i].coppy(help[i].im_type,help[i].get_state(),help[i].get_position());
         i++;
@@ -221,6 +256,7 @@ void juego::addPersonaje(int name){
     else personajes.resize(1);
     personajes[personajes.size()-1].asignation(name);
 }
+
 
 void juego::addFigure(int type,char new_state,sf::Vector2f possition){
     if(figuras.size()) coppyFig();
@@ -251,4 +287,26 @@ void juego::drawing(){
         i++;
     }
     window.display();
+}
+void juego::drawing(sf::Text Texto){
+ window.clear();
+    size_t i=0;
+    while(i<imagenes.size()){
+        window.draw(imagenes[i].sprite());
+        i++;
+    }
+
+    i=0;
+    while(i<figuras.size()){
+        window.draw(figuras[i].sprite());
+        i++;
+    }
+    i=0;
+    window.draw(Texto);
+    while(i<personajes.size()){
+        window.draw(personajes[i].sprite());
+        i++;
+    }
+    window.display();
+
 }
