@@ -7,7 +7,7 @@ juego::juego(){
 }
 
 juego::juego(int ressx,int ressy,std::string name){
-    window.create(sf::VideoMode(ressx,ressy,32),name,sf::Style::Close);
+    window.create(sf::VideoMode(ressx,ressy,32),name);
     window.setVerticalSyncEnabled(true); //freeSinc
     window.setFramerateLimit(60);
 
@@ -23,6 +23,75 @@ void juego::gameloop(){
     }
 
 
+}
+void juego::personajes_select(){
+    size_t i=0;
+    size_t fig=0;
+    while(fig<6){
+                addFigure(fig);
+                fig+=1;
+            }
+    addImage(16); //fondo
+    addImage(17); //cartel
+            figuras[0].move_position(sf::Vector2f(233,261));
+            figuras[1].move_position(sf::Vector2f(420,261));
+            figuras[2].move_position(sf::Vector2f(627,261));
+            figuras[3].move_position(sf::Vector2f(233,492));
+            figuras[4].move_position(sf::Vector2f(420,492));
+            figuras[5].move_position(sf::Vector2f(627,492));
+        int aux=-1;
+        std::vector<int> a;
+        a.resize(3);
+        while(i<3){
+            a[i]=-1;
+            i+=1;
+        }
+        i=0;
+    while(window.isOpen()&&i<3){
+        eventos();
+        aux=compare(figuras);
+           if(aux!=-1&&a[0]!=aux&&a[1]!=aux&&a[2]!=aux){
+               a[i]=aux;
+                figuras[aux].change_state('w');
+
+                i+=1;
+           }
+
+        drawing();
+    }
+    i=0;
+    while(i<3){
+            std::cout<<a[i]<<std::endl;
+            if(a[i]<0){
+
+            }
+            else{
+            std::cout<<"entre"<<std::endl;
+             addPersonaje(a[i]);
+
+            }
+
+        i+=1;
+    }
+
+    figuras.clear();
+    imagenes.clear();
+}
+
+int juego::compare(std::vector<figura> comparar){
+    size_t i=0;
+
+    if(sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+                sf::Vector2i localPosition = sf::Mouse::getPosition(window);
+    while (i<comparar.size()){
+        if( comparar[i].inside(localPosition)){
+                return comparar[i].im_type;
+            }
+
+        i+=1;
+    }
+    }
+    return -1;
 }
 
 void juego::eventos(){
@@ -78,12 +147,12 @@ void juego::eventos(){
             //indicador de coordenadas al click izquierdo
             if(sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
                 sf::Vector2i localPosition = sf::Mouse::getPosition(window);
-                if( figuras[0].inside(localPosition)){
-                    std::cout<<"Esta dentro"<<std::endl;
-                }
-                else{
-                    std::cout<<"Esta fuera"<<std::endl;
-                }
+                //if( figuras[0].inside(localPosition)){
+                    std::cout<<"Coordenada x: "<<localPosition.x<<std::endl<<"Coordenada y: "<<localPosition.y<<std::endl;
+                //}
+                //else{
+                    //std::cout<<"Esta fuera"<<std::endl;
+                //}
             }
 
 }
@@ -118,6 +187,22 @@ void juego::coppyIm(){
 
 }
 
+void juego::coppyPer(){
+    help.resize(imagenes.size());
+    size_t i=0;
+    while(i<personajes.size()){
+        help[i].coppy(personajes[i].im_type,personajes[i].get_state(),personajes[i].get_position());
+        i++;
+    }
+    i=0;
+    personajes.resize(imagenes.size()+1);
+     while(i<help.size()){
+        personajes[i].coppy(help[i].im_type,help[i].get_state(),help[i].get_position());
+        i++;
+    }
+}
+
+
 void juego::addFigure(int name){
     if(figuras.size()) coppyFig();
     else figuras.resize(1);
@@ -129,6 +214,12 @@ void juego::addImage(int name){
     if(imagenes.size()) coppyIm();
     else imagenes.resize(1);
     imagenes[imagenes.size()-1].asignation(name);
+}
+void juego::addPersonaje(int name){
+
+    if(personajes.size()) coppyPer();
+    else personajes.resize(1);
+    personajes[personajes.size()-1].asignation(name);
 }
 
 void juego::addFigure(int type,char new_state,sf::Vector2f possition){
@@ -152,6 +243,11 @@ void juego::drawing(){
     i=0;
     while(i<figuras.size()){
         window.draw(figuras[i].sprite());
+        i++;
+    }
+    i=0;
+    while(i<personajes.size()){
+        window.draw(personajes[i].sprite());
         i++;
     }
     window.display();

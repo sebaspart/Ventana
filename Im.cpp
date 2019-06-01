@@ -601,6 +601,175 @@
             }
 
     }
+            // Recuadro atacar
+        if(type==14){
+            if(!Imagen[0].loadFromFile("Imagenes/atacar.png")){
+            return -1;
+            }
+                if(!Imagen[1].loadFromFile("Imagenes/atacar.png")){
+            return -1;
+            }
+            switch (index){
+            case 0:
+            Base.setTexture(Imagen[1]);
+            Base.setTextureRect(sf::IntRect(253,115,796,494));
+        {sf::Vector2f centro;
+        centro.x=Base.getTextureRect().width/2.f;
+        centro.y=Base.getTextureRect().height/2.f;
+        Base.setOrigin(centro);
+        }
+            set_scale(.1);
+
+
+                break;
+            case 1:
+            Base.setTexture(Imagen[1]);
+            Base.setTextureRect(sf::IntRect(253,115,796,494));
+        {sf::Vector2f centro;
+        centro.x=Base.getTextureRect().width/2.f;
+        centro.y=Base.getTextureRect().height/2.f;
+        Base.setOrigin(centro);
+        }
+            set_scale(.1);
+            break;
+            }
+        }
+
+        // Recuadro Curar
+        if(type==15){
+            if(!Imagen[0].loadFromFile("Imagenes/curar.png")){
+            return -1;
+            }
+                if(!Imagen[1].loadFromFile("Imagenes/curar.png")){
+            return -1;
+            }
+            switch (index){
+            case 0:
+            Base.setTexture(Imagen[1]);
+            Base.setTextureRect(sf::IntRect(253,115,796,494));
+        {sf::Vector2f centro;
+        centro.x=Base.getTextureRect().width/2.f;
+        centro.y=Base.getTextureRect().height/2.f;
+        Base.setOrigin(centro);
+        }
+            set_scale(.1);
+
+
+                break;
+            case 1:
+            Base.setTexture(Imagen[1]);
+            Base.setTextureRect(sf::IntRect(253,115,796,494));
+        {sf::Vector2f centro;
+        centro.x=Base.getTextureRect().width/2.f;
+        centro.y=Base.getTextureRect().height/2.f;
+        Base.setOrigin(centro);
+        }
+            set_scale(.1);
+            break;
+            }
+        }
+                // Imagen presentacion de personajes
+        if(type==16){
+            if(!Imagen[0].loadFromFile("Imagenes/fondo_personajes.png")){
+            return -1;
+            }
+                if(!Imagen[1].loadFromFile("Imagenes/fondo_personajes.png")){
+            return -1;
+            }
+            switch (index){
+            case 0:
+            Base.setTexture(Imagen[1]);
+            Base.setTextureRect(sf::IntRect(0,0,1920,1080));
+            Base.setScale(sf::Vector2f(.43,.57));
+            Base.setPosition(0,0);
+
+                break;
+            case 1:
+            Base.setTexture(Imagen[1]);
+            Base.setTextureRect(sf::IntRect(0,0,1920,1080));
+            Base.setScale(sf::Vector2f(.41,.55));
+            Base.setPosition(0,0);
+
+            break;
+            }
+        }
+        // Recuadro Info seleccion personajes
+        if(type==17){
+            if(!Imagen[0].loadFromFile("Imagenes/personajes.png")){
+            return -1;
+            }
+                if(!Imagen[1].loadFromFile("Imagenes/personajes.png")){
+            return -1;
+            }
+            switch (index){
+            case 0:
+            Base.setTexture(Imagen[1]);
+            Base.setTextureRect(sf::IntRect(253,115,796,494));
+        {sf::Vector2f centro;
+        centro.x=Base.getTextureRect().width/2.f;
+        centro.y=Base.getTextureRect().height/2.f;
+        Base.setOrigin(centro);
+        }
+            //Posicion del cartel
+            Base.setPosition(227,79);
+            set_scale(.2);
+
+
+                break;
+            case 1:
+            Base.setTexture(Imagen[1]);
+            Base.setTextureRect(sf::IntRect(253,115,796,494));
+        {sf::Vector2f centro;
+        centro.x=Base.getTextureRect().width/2.f;
+        centro.y=Base.getTextureRect().height/2.f;
+        Base.setOrigin(centro);
+        }
+            //Posicion del cartel
+            Base.setPosition(227,79);
+            set_scale(.2);
+            break;
+            }
+        }
+
+    if(type<0||type>17){
+            if(!Imagen[0].loadFromFile("Imagenes/Human/Front/knight1.png")){
+            return -1;
+            }
+                if(!Imagen[1].loadFromFile("Imagenes/Human/Side/knight1.png")){
+            return -1;
+            }
+
+            switch (index){
+            case 0:
+
+                //caso 1 de figura
+                Base.setTexture(Imagen[0]);
+                Base.setPosition(300,150);
+                Base.setTextureRect(sf::IntRect(0,2,15,15));
+                {sf::Vector2f centro;
+                centro.x=Base.getTextureRect().width/2.f;
+                centro.y=Base.getTextureRect().height/2.f;
+                Base.setOrigin(centro);
+                }
+                set_scale(3);
+                break;
+            case 1:
+                 Base.setTexture(Imagen[1]);
+        Base.setPosition(200,150);
+        Base.setTextureRect(sf::IntRect(16,0,15,15));
+        {sf::Vector2f centro;
+        centro.x=Base.getTextureRect().width/2.f;
+        centro.y=Base.getTextureRect().height/2.f;
+        Base.setOrigin(centro);
+        }
+        set_scale(-3);
+        break;
+
+    }
+
+    }
+
+
 
 
     return 0;

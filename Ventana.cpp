@@ -3,9 +3,10 @@
 int main()
 {
    juego game(800,600,"Pepito");
-   game.addFigure(0);
-   game.addImage(1);
+   //game.addFigure(17);
+   //game.addImage(16);
 
+    game.personajes_select();
    game.gameloop();
 
     return 0;

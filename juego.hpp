@@ -17,16 +17,21 @@ class juego{
     //Funciones personales debido a un error dentro de la libreria SFML y el uso de la plantilla Vector
     void addFigure(int name);
     void addImage(int name);
+    void addPersonaje(int name);
     void addFigure(int type,char new_state,sf::Vector2f possition);
     void addImage(int type,char new_state,sf::Vector2f possition);
+    void personajes_select();
+    int compare(std::vector<figura> comparar );
 
 
 	private:
 	//Funciones para vector de ayuda
     void coppyIm();
     void coppyFig();
+    void coppyPer();
     sf::RenderWindow window;
     std::vector <figura> figuras;
+    std::vector <figura> personajes;
     std::vector <figura> help;
     std::vector <figura> imagenes;
     sf::Event event;
