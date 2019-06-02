@@ -14,8 +14,11 @@ juego::juego(int ressx,int ressy,std::string name){
 }
 
 void juego::gameloop(){
+    battle_init=1;
+    action=-1;
     addImage(14);
     addImage(15);
+    addFigure(7);
     sf::Texture t1 ,t2;
 	t1.loadFromFile("Imagenes/fondo.png");
 	t2.loadFromFile("Imagenes/lateral.jpg");
@@ -35,8 +38,10 @@ void juego::gameloop(){
             std::cout<<"Coordenada y: "<<Position.y<<std::endl;
         }
         */
-        move_map(fondo,ancho);
-        eventos();
+        //move_map(fondo,ancho);
+
+        fight();
+         eventos();
         drawing(fondo,cabecera);
 
 
@@ -62,10 +67,11 @@ void juego::start(){
 	int i=1;
 	int aux;
 	while(window.isOpen()&&i){
-        eventos();
+
         aux=compare(imagenes);
         if(aux==19)i=0;
         if(aux==20)window.close();
+        eventos();
         drawing(texto);
 
 	}
@@ -104,7 +110,7 @@ void juego::personajes_select(){
 
                 i+=1;
            }
-
+        eventos();
         drawing();
     }
     i=0;
@@ -131,6 +137,7 @@ int juego::compare(std::vector<figura> comparar){
                 sf::Vector2i localPosition = sf::Mouse::getPosition(window);
     while (i>0){
         if( comparar[i-1].inside(localPosition)){
+
                 return comparar[i-1].im_type;
             }
 
@@ -139,6 +146,24 @@ int juego::compare(std::vector<figura> comparar){
     }
     return -1;
 }
+
+int juego::hit(std::vector<figura> comparar){
+    size_t i=0;
+
+    if(sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+                sf::Vector2i localPosition = sf::Mouse::getPosition(window);
+
+    while (i<comparar.size()){
+        if( comparar[i].inside(localPosition)){
+                return (i);
+            }
+
+        i+=1;
+    }
+    }
+    return -1;
+}
+
 int juego::compare(figura comparar){
 
     if(sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
@@ -181,7 +206,7 @@ void juego::eventos(){
                 break;
                 case sf::Event::KeyPressed:
                     if(event.key.code==sf::Keyboard::X){
-                        addFigure(figuras[0].im_type,figuras[0].get_state(),figuras[0].get_position());
+                        battle_init=1;
 
                     }
                     if(event.key.code==sf::Keyboard::M){
@@ -359,11 +384,12 @@ void juego::drawing(sf::Sprite Fondo, sf::Sprite Cabecera){
 }
 void juego::move_map(sf::Sprite &fondo,int ancho){
     size_t i=0;
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)&&battle_init<500){
             if((fondo.getPosition().x)*-1 >= ancho/2 + 243 )
         fondo.setPosition(0,0);
 
 			fondo.move(-.7,0);
+			battle_init+=1;
         i=0;
         while(i<personajes.size()){
             personajes[i].change_state('w');
@@ -371,3 +397,59 @@ void juego::move_map(sf::Sprite &fondo,int ancho){
             }
         }
 }
+
+void juego::fight(){
+    if(battle_init){
+            if(action==-1){
+                action=compare(imagenes);
+            }
+        //Boton Atacar
+        if(action==14){
+              int aliado=-1;
+              int enemigo=-1;
+                if(aliado==-1&&enemigo==-1){
+                    aliado= hit(personajes);
+                    enemigo= hit(figuras);
+
+                }
+                if(aliado!=-1){
+                   personajes[aliado].change_state('d');
+                   action=-1;
+
+                }
+                if(enemigo!=-1){
+                    figuras[enemigo].change_state('d');
+                    action=-1;
+
+                }
+
+
+    }
+        }
+        //Boton Curar
+         if(action==15){
+             int aliado=-1;
+              int enemigo=-1;
+                if(aliado==-1&&enemigo==-1){
+                    aliado= hit(personajes);
+                    enemigo= hit(figuras);
+
+                }
+                if(aliado!=-1){
+                   personajes[aliado].change_state('h');
+                   action=-1;
+
+                }
+                if(enemigo!=-1){
+                    figuras[enemigo].change_state('h');
+                    action=-1;
+
+                }
+
+
+        }
+
+
+
+    }
+

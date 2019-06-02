@@ -14,6 +14,8 @@ class juego{
     void personajes_select();
 
 	private:
+	  int hit(std::vector<figura> comparar);
+	  void fight();
     //Dibujado en pantalla de todos los elementos
      void drawing();
 	 void drawing(sf::Text);
@@ -37,11 +39,13 @@ class juego{
     int compare(figura comp);
     void move_map(sf::Sprite &mapa,int ancho);
     sf::RenderWindow window;
+    int action;
     std::vector <figura> figuras;
     std::vector <figura> personajes;
     std::vector <figura> help;
     std::vector <figura> imagenes;
     sf::Event event;
+    int battle_init;
 };
 
 
