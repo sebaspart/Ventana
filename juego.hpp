@@ -12,9 +12,18 @@ class juego{
     void gameloop();
     void start();
     void personajes_select();
+
+	private:
     //Dibujado en pantalla de todos los elementos
-    void drawing();
-    void eventos();
+     void drawing();
+	 void drawing(sf::Text);
+	 void drawing(sf::Sprite Fondo, sf::Sprite Cabecera);
+	 void eventos();
+	//Funciones para vector de ayuda
+    void coppyIm();
+    void coppyFig();
+    void coppyPer();
+    void coppydat(std::vector<figura> copia);
     //Agregado de elementos al vector
     //Funciones personales debido a un error dentro de la libreria SFML y el uso de la plantilla Vector
     void addFigure(int name);
@@ -26,15 +35,7 @@ class juego{
     void addImage(int type,char new_state,sf::Vector2f possition);
     int compare(std::vector<figura> comparar );
     int compare(figura comp);
-
-
-	private:
-	 void drawing(sf::Text);
-	//Funciones para vector de ayuda
-    void coppyIm();
-    void coppyFig();
-    void coppyPer();
-    void coppydat(std::vector<figura> copia);
+    void move_map(sf::Sprite &mapa,int ancho);
     sf::RenderWindow window;
     std::vector <figura> figuras;
     std::vector <figura> personajes;

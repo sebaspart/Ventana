@@ -14,13 +14,31 @@ juego::juego(int ressx,int ressy,std::string name){
 }
 
 void juego::gameloop(){
-    personajes[0].move_position(sf::Vector2f(30,30));
-    personajes[1].move_position(sf::Vector2f(120,30));
-    personajes[2].move_position(sf::Vector2f(210,30));
+    addImage(14);
+    addImage(15);
+    sf::Texture t1 ,t2;
+	t1.loadFromFile("Imagenes/fondo.png");
+	t2.loadFromFile("Imagenes/lateral.jpg");
+	sf::Sprite fondo, cabecera;
+	fondo.setTexture(t1);
+	cabecera.setTexture(t2);
+	fondo.setScale(1.42,1.58);
+	cabecera.setScale(1.42,0.35);
+	int ancho=(int)fondo.getTextureRect().width;
+    personajes[2].move_position(sf::Vector2f(50,542));
+    personajes[1].move_position(sf::Vector2f(150,542));
+    personajes[0].move_position(sf::Vector2f(250,542));
     while(window.isOpen()){
-
+        /*sf::Vector2i Position= sf::Mouse::getPosition(window);
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+            std::cout<<"Coordenada x: "<<Position.x<<std::endl;
+            std::cout<<"Coordenada y: "<<Position.y<<std::endl;
+        }
+        */
+        move_map(fondo,ancho);
         eventos();
-        drawing();
+        drawing(fondo,cabecera);
+
 
 
     }
@@ -48,8 +66,6 @@ void juego::start(){
         aux=compare(imagenes);
         if(aux==19)i=0;
         if(aux==20)window.close();
-
-
         drawing(texto);
 
 	}
@@ -138,6 +154,16 @@ int juego::compare(figura comparar){
 }
 
 void juego::eventos(){
+    size_t k=0;
+            while(k<personajes.size()){
+                if(personajes[k].anim_on||sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
+
+                }
+                else{
+                    personajes[k].change_state('n');
+                }
+                k+=1;
+            }
    // sf::Vector2i Position= sf::Mouse::getPosition(window);
         while(window.pollEvent(event))
         {
@@ -161,7 +187,7 @@ void juego::eventos(){
                     if(event.key.code==sf::Keyboard::M){
                         size_t i=0;
                         while(i<personajes.size()){
-                        personajes[i].change_state('n');
+                        personajes[i].change_state('w');
                         i++;
                         }
                     }
@@ -309,4 +335,39 @@ void juego::drawing(sf::Text Texto){
     }
     window.display();
 
+}
+void juego::drawing(sf::Sprite Fondo, sf::Sprite Cabecera){
+    window.clear();
+    size_t i=0;
+    window.draw(Fondo);
+    window.draw(Cabecera);
+    while(i<imagenes.size()){
+        window.draw(imagenes[i].sprite());
+        i++;
+    }
+    i=0;
+    while(i<figuras.size()){
+        window.draw(figuras[i].sprite());
+        i++;
+    }
+    i=0;
+    while(i<personajes.size()){
+        window.draw(personajes[i].sprite());
+        i++;
+    }
+    window.display();
+}
+void juego::move_map(sf::Sprite &fondo,int ancho){
+    size_t i=0;
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
+            if((fondo.getPosition().x)*-1 >= ancho/2 + 243 )
+        fondo.setPosition(0,0);
+
+			fondo.move(-.7,0);
+        i=0;
+        while(i<personajes.size()){
+            personajes[i].change_state('w');
+            i+=1;
+            }
+        }
 }

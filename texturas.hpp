@@ -40,7 +40,8 @@ public:
     void coppy(int type,char new_sate,sf::Vector2f possition);
     char get_state();
     int im_type;
-
+    //Valor referencia para animacion
+    int anim_on;
 
 
     private:
@@ -56,8 +57,6 @@ public:
         //Posicion referencia para animacion
     sf::Vector2f main_poss;
 
-        //Valor referencia para animacion
-    int anim_on;
 
     //condicion de animacion
     int damage_true;

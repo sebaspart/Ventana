@@ -63,9 +63,13 @@
         if(elapsed1.asSeconds()<0.2&&elapsed1.asSeconds()>0.1&&anim_on){
             move_offset(-5,0);
         }
-        if (elapsed1.asSeconds()>0.3&&elapsed1.asSeconds()<0.4&&anim_on){
+        else if (elapsed1.asSeconds()>0.3&&elapsed1.asSeconds()<0.4&&anim_on){
             move_position(main_poss);
+        }
+        else if(elapsed1.asSeconds()>0.5&&elapsed1.asSeconds()<0.6&&anim_on){
             anim_on=0;
+            change_state('n');
+
         }
 
 
@@ -77,6 +81,9 @@
     void figura::change_color(){
         if(state=='h'){ //Curacion
             objeto[current_im].recolor('h'); //h= heal= verde
+            main_poss=get_position();
+            anim_on=1;
+            damage_true=1;
         }
         else if(state=='m'){ //Muerto
             objeto[current_im].recolor('g'); //gris
@@ -97,7 +104,7 @@
     void figura::change_state(char new_state){
         state=new_state;
         change_im();
-         return change_color();
+        change_color();
 
     }
 

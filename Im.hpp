@@ -39,6 +39,13 @@ public:
     // type=11  Cosa Huevo
     // type=12  Mounstro del Pantano
     // type=13  Abeja
+    // type=14  Recuadro Atacar
+    // type=15  Recuadro Curar
+    // type=16  Fondo seleccion de personajes
+    // type=17  Leyenda seleccion personajes
+    // type=18  Fondo pantalla inicio
+    // type=19  Recuadro Iniciar
+    // type=20  Recuadro Salir
     int asignation(int type, int index);
 
     sf::Sprite draw();

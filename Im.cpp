@@ -104,7 +104,7 @@
                 centro.y=Base.getTextureRect().height/2.f;
                 Base.setOrigin(centro);
                 }
-                set_scale(3);
+                set_scale(4);
                 break;
             case 1:
                  Base.setTexture(Imagen[1]);
@@ -115,7 +115,7 @@
         centro.y=Base.getTextureRect().height/2.f;
         Base.setOrigin(centro);
         }
-        set_scale(-3);
+        set_scale(-4);
         break;
 
             }
@@ -140,7 +140,7 @@
         centro.y=Base.getTextureRect().height/2.f;
         Base.setOrigin(centro);
         }
-        set_scale(3);
+        set_scale(4);
         break;
         case 1:
             Base.setTexture(Imagen[1]);
@@ -151,7 +151,7 @@
         centro.y=Base.getTextureRect().height/2.f;
         Base.setOrigin(centro);
         }
-        set_scale(-3);
+        set_scale(-4);
 
         break;
 
@@ -177,7 +177,7 @@
         centro.y=Base.getTextureRect().height/2.f;
         Base.setOrigin(centro);
         }
-        set_scale(3);
+        set_scale(4);
         break;
         case 1:
             Base.setTexture(Imagen[1]);
@@ -188,7 +188,7 @@
         centro.y=Base.getTextureRect().height/2.f;
         Base.setOrigin(centro);
         }
-        set_scale(-3);
+        set_scale(-4);
 
         break;
 
@@ -214,7 +214,7 @@
         centro.y=Base.getTextureRect().height/2.f;
         Base.setOrigin(centro);
         }
-        set_scale(3);
+        set_scale(4);
         break;
         case 1:
             Base.setTexture(Imagen[1]);
@@ -225,7 +225,7 @@
         centro.y=Base.getTextureRect().height/2.f;
         Base.setOrigin(centro);
         }
-        set_scale(-3);
+        set_scale(-4);
         break;
 
 
@@ -253,7 +253,7 @@
         centro.y=Base.getTextureRect().height/2.f;
         Base.setOrigin(centro);
         }
-        set_scale(3);
+        set_scale(4);
         break;
         case 1:
             Base.setTexture(Imagen[1]);
@@ -264,7 +264,7 @@
         centro.y=Base.getTextureRect().height/2.f;
         Base.setOrigin(centro);
         }
-        set_scale(-3);
+        set_scale(-4);
         break;
 
             }
@@ -291,7 +291,7 @@
         centro.y=Base.getTextureRect().height/2.f;
         Base.setOrigin(centro);
         }
-        set_scale(3);
+        set_scale(4);
         break;
         case 1:
             Base.setTexture(Imagen[1]);
@@ -302,7 +302,7 @@
         centro.y=Base.getTextureRect().height/2.f;
         Base.setOrigin(centro);
         }
-        set_scale(-3);
+        set_scale(-4);
         break;
 
             }
@@ -601,7 +601,7 @@
             }
 
     }
-            // Recuadro atacar
+            //           TIPO 14   Recuadro atacar
         if(type==14){
             if(!Imagen[0].loadFromFile("Imagenes/atacar.png")){
             return -1;
@@ -619,6 +619,7 @@
         Base.setOrigin(centro);
         }
             set_scale(.1);
+            Base.setPosition(469,46);
 
 
                 break;
@@ -631,11 +632,12 @@
         Base.setOrigin(centro);
         }
             set_scale(.1);
+            Base.setPosition(469,46);
             break;
             }
         }
 
-        // Recuadro Curar
+        //          TIPO 15            Recuadro Curar
         if(type==15){
             if(!Imagen[0].loadFromFile("Imagenes/curar.png")){
             return -1;
@@ -654,7 +656,7 @@
         }
             set_scale(.1);
 
-
+            Base.setPosition(626,46);
                 break;
             case 1:
             Base.setTexture(Imagen[1]);
@@ -665,10 +667,11 @@
         Base.setOrigin(centro);
         }
             set_scale(.1);
+            Base.setPosition(626,46);
             break;
             }
         }
-                // Imagen presentacion de personajes
+                // TIPO 16 Imagen presentacion de personajes
         if(type==16){
             if(!Imagen[0].loadFromFile("Imagenes/fondo_personajes.png")){
             return -1;
@@ -693,7 +696,7 @@
             break;
             }
         }
-        // Recuadro Info seleccion personajes
+        //          TIPO 17    Recuadro Info seleccion personajes
         if(type==17){
             if(!Imagen[0].loadFromFile("Imagenes/personajes.png")){
             return -1;
@@ -724,13 +727,14 @@
         centro.y=Base.getTextureRect().height/2.f;
         Base.setOrigin(centro);
         }
-            //Posicion del cartel
+            //     Posicion del cartel
             Base.setPosition(227,79);
             set_scale(.2);
             break;
             }
         }
 
+            //  TIPO 18             Fondo principal de inicio
         if(type==18){
             if(!Imagen[0].loadFromFile("Imagenes/main.png")){
             return -1;
@@ -755,6 +759,8 @@
 
 
         }
+
+        //  TIPO 19                 Recuadro Iniciar
         if(type==19){
                 if(!Imagen[0].loadFromFile("Imagenes/start.png")){
             return -1;
@@ -792,6 +798,7 @@
 
         }
 
+           //  TIPO 20                 Recuadro Salir
         if(type==20){
                 if(!Imagen[0].loadFromFile("Imagenes/SALIR.png")){
             return -1;
