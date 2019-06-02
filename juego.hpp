@@ -46,6 +46,8 @@ class juego{
     std::vector <figura> imagenes;
     sf::Event event;
     int battle_init;
+    void generate_enemies(int type,int amount);
+    int stage;
 };
 
 

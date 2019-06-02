@@ -14,11 +14,14 @@ juego::juego(int ressx,int ressy,std::string name){
 }
 
 void juego::gameloop(){
-    battle_init=1;
+    //Inicializaciones  texturas necesarias y valores referencia
+    battle_init=0;
+    stage=1;
     action=-1;
     addImage(14);
     addImage(15);
-    addFigure(7);
+    //generate_enemies(6,3);
+
     sf::Texture t1 ,t2;
 	t1.loadFromFile("Imagenes/fondo.png");
 	t2.loadFromFile("Imagenes/lateral.jpg");
@@ -28,9 +31,12 @@ void juego::gameloop(){
 	fondo.setScale(1.42,1.58);
 	cabecera.setScale(1.42,0.35);
 	int ancho=(int)fondo.getTextureRect().width;
+
+	//posicionamiento de aliados
     personajes[2].move_position(sf::Vector2f(50,542));
     personajes[1].move_position(sf::Vector2f(150,542));
     personajes[0].move_position(sf::Vector2f(250,542));
+
     while(window.isOpen()){
         /*sf::Vector2i Position= sf::Mouse::getPosition(window);
         if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
@@ -38,7 +44,7 @@ void juego::gameloop(){
             std::cout<<"Coordenada y: "<<Position.y<<std::endl;
         }
         */
-        //move_map(fondo,ancho);
+        move_map(fondo,ancho);
 
         fight();
          eventos();
@@ -390,16 +396,21 @@ void juego::move_map(sf::Sprite &fondo,int ancho){
 
 			fondo.move(-.7,0);
 			battle_init+=1;
+			if(battle_init==500){
+                generate_enemies(6+stage,3);
+                if(stage<14)    stage+=1;
+            }
         i=0;
         while(i<personajes.size()){
             personajes[i].change_state('w');
             i+=1;
             }
         }
+
 }
 
 void juego::fight(){
-    if(battle_init){
+    if(battle_init>499){
             if(action==-1){
                 action=compare(imagenes);
             }
@@ -453,3 +464,12 @@ void juego::fight(){
 
     }
 
+    void juego::generate_enemies(int type,int amount){
+        size_t enemies=0;
+        figuras.clear();
+    while(enemies<amount){
+        addFigure(type);
+        figuras[enemies].move_position(sf::Vector2f(800-50-100*enemies,542));
+        enemies+=1;
+    }
+    }
