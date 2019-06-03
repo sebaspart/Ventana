@@ -18,6 +18,8 @@ void juego::gameloop(){
     battle_init=0;
     stage=1;
     action=-1;
+    turno=0;
+    current_dead=0;
 
     sf::Texture t1 ,t2;
 	t1.loadFromFile("Imagenes/fondo.png");
@@ -376,6 +378,26 @@ void juego::fight(){
             if(action==-1){
                 action=compare(imagenes);
             }
+            if(personajes[turno].data.current_life==0){
+                    if(!dead.size()){
+                            current_dead+=1;
+                        dead.push_back(turno);
+                    }
+                    else  {
+                        int i=0;
+                        while(i<dead.size()){
+                            if(turno==dead[i]){
+
+                            }
+                            else dead.push_back(turno);
+                            i+=1;
+                        }
+                    }
+
+
+                action=1;
+            }
+
         //Boton Atacar
         if(action==14){
               int enemigo=-1;
@@ -386,15 +408,16 @@ void juego::fight(){
 
                 }
                 if(enemigo!=-1){
+                    figuras[enemigo].data.damage_in(personajes[turno].data.damage()) ;
                     figuras[enemigo].change_state('d');
+                    turno+=1;
                     action=-1;
 
                 }
 
 
     }
-        }
-        //Boton Curar
+    //Boton Curar
          if(action==15){
              int aliado=-1;
                 if(aliado==-1){
@@ -402,15 +425,45 @@ void juego::fight(){
                 }
                 //A quien curar
                 if(aliado!=-1){
+                personajes[aliado].data.damage_in(personajes[turno].data.heal());
                    personajes[aliado].change_state('h');
+                   turno+=1;
                    action=-1;
 
                 }
 
 
+            }
+            if(action==1){
+                action=-1;
+                turno+=1;
+            }
+
+
+    if(turno==3&&figuras[0].data.current_life){
+        turno=0;
+        if(figuras[0].data.heal()&&(figuras[0].data.current_life<200)&&!heal_boss){
+            figuras[0].data.damage_in(figuras[0].data.heal());
+            heal_boss=1;
+        }
+        else{
+            srand(time(NULL));
+            int objetivo=rand()%3;
+            personajes[objetivo].data.damage_in(figuras[0].data.damage());
+            personajes[objetivo].change_state('d');
+            if(personajes[objetivo].data.current_life==0) personajes[objetivo].change_state('m');
         }
 
 
+    }
+    if(figuras[0].data.current_life==0&&figuras.size()){
+
+        battle_init=0;
+        turno=0;
+        figuras.clear();
+        imagenes.clear();
+    }
+     }
 
     }
 

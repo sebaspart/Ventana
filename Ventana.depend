@@ -826,12 +826,13 @@
 1559456903 c:\users\sebas\documents\ventana sfml\ventana\im.hpp
 	<SFML/Graphics.hpp>
 
-1559467149 source:c:\users\sebas\documents\ventana sfml\ventana\textura.cpp
+1559545118 source:c:\users\sebas\documents\ventana sfml\ventana\textura.cpp
 	"texturas.hpp"
 
-1559466188 c:\users\sebas\documents\ventana sfml\ventana\texturas.hpp
+1559541638 c:\users\sebas\documents\ventana sfml\ventana\texturas.hpp
 	"Im.hpp"
 	<SFML/Graphics.hpp>
+	"atributos.hpp"
 
 1559508310 source:c:\users\seb\documents\github\ventana\textura.cpp
 	"texturas.hpp"
@@ -849,10 +850,10 @@
 1559508307 source:c:\users\seb\documents\github\ventana\im.cpp
 	"Im.hpp"
 
-1559534911 source:c:\users\sebas\documents\ventana sfml\ventana\juego.cpp
+1559545886 source:c:\users\sebas\documents\ventana sfml\ventana\juego.cpp
 	"juego.hpp"
 
-1559533661 c:\users\sebas\documents\ventana sfml\ventana\juego.hpp
+1559545393 c:\users\sebas\documents\ventana sfml\ventana\juego.hpp
 	<SFML/Graphics.hpp>
 	<SFML/Window.hpp>
 	"texturas.hpp"
@@ -863,4 +864,11 @@
 	<SFML/Window.hpp>
 	"texturas.hpp"
 	<iostream>
+
+1559541314 c:\users\sebas\documents\ventana sfml\ventana\atributos.hpp
+	<time.h>
+	<stdlib.h>
+
+1559545241 source:c:\users\sebas\documents\ventana sfml\ventana\atributos.cpp
+	"atributos.hpp"
 

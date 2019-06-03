@@ -48,6 +48,10 @@ class juego{
     int battle_init;
     void generate_enemies(int type,int amount);
     int stage;
+    int turno;
+    int heal_boss;
+    int current_dead;
+    std::vector <int> dead;
 };
 
 

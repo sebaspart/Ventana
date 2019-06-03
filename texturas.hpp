@@ -2,6 +2,7 @@
 #define TEXTURAS_HPP
 #include "Im.hpp"
 #include <SFML/Graphics.hpp>
+#include "atributos.hpp"
 class figura{
 public:
 
@@ -43,7 +44,7 @@ public:
     //Valor referencia para animacion
     int anim_on;
 
-
+    atrib data;
     private:
         //Animacion daño
     void damage_im();

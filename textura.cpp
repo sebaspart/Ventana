@@ -138,6 +138,7 @@
         objeto[1].asignation(name,1);
         im_type=name;
         current_im=0;
+        data.init_caracter(name);
     }
 
     //Regresar sprite a dibujar
