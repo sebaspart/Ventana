@@ -397,7 +397,7 @@ void juego::move_map(sf::Sprite &fondo,int ancho){
 			fondo.move(-.7,0);
 			battle_init+=1;
 			if(battle_init==500){
-                generate_enemies(6+stage,3);
+                generate_enemies(5+stage,3);
                 if(stage<14)    stage+=1;
             }
         i=0;
@@ -418,6 +418,7 @@ void juego::fight(){
         if(action==14){
               int aliado=-1;
               int enemigo=-1;
+              //seleccion de objetivo
                 if(aliado==-1&&enemigo==-1){
                     aliado= hit(personajes);
                     enemigo= hit(figuras);
