@@ -331,7 +331,7 @@
         centro.y=Base.getTextureRect().height/2.f;
         Base.setOrigin(centro);
         }
-        set_scale(3);
+        set_scale(7);
         break;
         case 1:
             Base.setTexture(Imagen[1]);
@@ -342,7 +342,7 @@
         centro.y=Base.getTextureRect().height/2.f;
         Base.setOrigin(centro);
         }
-        set_scale(-3);
+        set_scale(-7);
         break;
 
             }
@@ -367,7 +367,7 @@
         centro.y=Base.getTextureRect().height/2.f;
         Base.setOrigin(centro);
         }
-        set_scale(3);
+        set_scale(7);
         break;
         case 1:
             Base.setTexture(Imagen[1]);
@@ -378,7 +378,7 @@
         centro.y=Base.getTextureRect().height/2.f;
         Base.setOrigin(centro);
         }
-        set_scale(-3);
+        set_scale(-7);
         break;
 
             }
@@ -386,10 +386,10 @@
     }
            //           TIPO 8         IMP (DIABLILLO)
         if(type==8){
-            if(!Imagen[0].loadFromFile("Imagenes/Monsters/monster_48.png")){
+            if(!Imagen[0].loadFromFile("Imagenes/Monsters/monster_38.png")){
             return -1;
             }
-                if(!Imagen[1].loadFromFile("Imagenes/Monsters/monster_48.png")){
+                if(!Imagen[1].loadFromFile("Imagenes/Monsters/monster_38.png")){
             return -1;
             }
 
@@ -403,7 +403,7 @@
         centro.y=Base.getTextureRect().height/2.f;
         Base.setOrigin(centro);
         }
-        set_scale(3);
+        set_scale(7);
         break;
         case 1:
             Base.setTexture(Imagen[1]);
@@ -414,7 +414,7 @@
         centro.y=Base.getTextureRect().height/2.f;
         Base.setOrigin(centro);
         }
-        set_scale(-3);
+        set_scale(-7);
         break;
 
             }
@@ -440,7 +440,7 @@
         centro.y=Base.getTextureRect().height/2.f;
         Base.setOrigin(centro);
         }
-        set_scale(3);
+        set_scale(7);
         break;
         case 1:
             Base.setTexture(Imagen[1]);
@@ -451,7 +451,7 @@
         centro.y=Base.getTextureRect().height/2.f;
         Base.setOrigin(centro);
         }
-        set_scale(-3);
+        set_scale(-7);
         break;
 
             }
@@ -476,7 +476,7 @@
         centro.y=Base.getTextureRect().height/2.f;
         Base.setOrigin(centro);
         }
-        set_scale(3);
+        set_scale(7);
         break;
         case 1:
             Base.setTexture(Imagen[1]);
@@ -487,7 +487,7 @@
         centro.y=Base.getTextureRect().height/2.f;
         Base.setOrigin(centro);
         }
-        set_scale(3);
+        set_scale(7);
         break;
 
             }
@@ -512,7 +512,7 @@
         centro.y=Base.getTextureRect().height/2.f;
         Base.setOrigin(centro);
         }
-        set_scale(3);
+        set_scale(7);
         break;
         case 1:
             Base.setTexture(Imagen[1]);
@@ -523,7 +523,7 @@
         centro.y=Base.getTextureRect().height/2.f;
         Base.setOrigin(centro);
         }
-        set_scale(-3);
+        set_scale(-7);
         break;
 
             }
@@ -548,7 +548,7 @@
         centro.y=Base.getTextureRect().height/2.f;
         Base.setOrigin(centro);
         }
-        set_scale(3);
+        set_scale(7);
         break;
         case 1:
             Base.setTexture(Imagen[1]);
@@ -559,7 +559,7 @@
         centro.y=Base.getTextureRect().height/2.f;
         Base.setOrigin(centro);
         }
-        set_scale(-3);
+        set_scale(-7);
         break;
 
             }
@@ -584,7 +584,7 @@
         centro.y=Base.getTextureRect().height/2.f;
         Base.setOrigin(centro);
         }
-        set_scale(3);
+        set_scale(7);
         break;
         case 1:
             Base.setTexture(Imagen[1]);
@@ -595,7 +595,7 @@
         centro.y=Base.getTextureRect().height/2.f;
         Base.setOrigin(centro);
         }
-        set_scale(-3);
+        set_scale(-7);
         break;
 
             }

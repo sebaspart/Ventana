@@ -18,9 +18,6 @@ void juego::gameloop(){
     battle_init=0;
     stage=1;
     action=-1;
-    addImage(14);
-    addImage(15);
-    //generate_enemies(6,3);
 
     sf::Texture t1 ,t2;
 	t1.loadFromFile("Imagenes/fondo.png");
@@ -195,7 +192,6 @@ void juego::eventos(){
                 }
                 k+=1;
             }
-   // sf::Vector2i Position= sf::Mouse::getPosition(window);
         while(window.pollEvent(event))
         {
 
@@ -205,48 +201,10 @@ void juego::eventos(){
                 case sf::Event::Closed:
                 window.close();
                 break;
-                //if(event.mouseButton.button==sf::Mouse::Left){
-
-                //}
-
-                break;
-                case sf::Event::KeyPressed:
-                    if(event.key.code==sf::Keyboard::X){
-                        battle_init=1;
-
-                    }
-                    if(event.key.code==sf::Keyboard::M){
-                        size_t i=0;
-                        while(i<personajes.size()){
-                        personajes[i].change_state('w');
-                        i++;
-                        }
-                    }
-                    if(event.key.code==sf::Keyboard::A){
-                        size_t i=0;
-                        while(i<personajes.size()){
-                        personajes[i].change_state('d');
-                        i++;
-                        }
-
-                    }
-                    break;
                 default:
                 break;
             }
         }
-                //if(sf::Keyboard::isKeyPressed(sf::Keyboard::C)){
-                    //imagenes[0].move_position(Position);
-              //}
-
-              //if(sf::Mouse::isButtonPressed(sf::Mouse::Right)){
-               // figuras[figuras.size()-1].move_position(Position);
-
-              //}
-              //if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
-               // std::cout<<"Coordenada x: "<<Position.x<<std::endl;
-               // std::cout<<"Coordenada y: "<<Position.y<<std::endl;
-              //}
 }
 
 void juego::coppyFig(){
@@ -397,8 +355,8 @@ void juego::move_map(sf::Sprite &fondo,int ancho){
 			fondo.move(-.7,0);
 			battle_init+=1;
 			if(battle_init==500){
-                generate_enemies(5+stage,3);
-                if(stage<14)    stage+=1;
+                generate_enemies(5+stage,1);
+                if(stage<8)    stage+=1;
             }
         i=0;
         while(i<personajes.size()){
@@ -411,22 +369,20 @@ void juego::move_map(sf::Sprite &fondo,int ancho){
 
 void juego::fight(){
     if(battle_init>499){
+            if(!imagenes.size()){
+                addImage(14);
+                addImage(15);
+            }
             if(action==-1){
                 action=compare(imagenes);
             }
         //Boton Atacar
         if(action==14){
-              int aliado=-1;
               int enemigo=-1;
               //seleccion de objetivo
-                if(aliado==-1&&enemigo==-1){
-                    aliado= hit(personajes);
-                    enemigo= hit(figuras);
+                if(enemigo==-1){
 
-                }
-                if(aliado!=-1){
-                   personajes[aliado].change_state('d');
-                   action=-1;
+                    enemigo= hit(figuras);
 
                 }
                 if(enemigo!=-1){
@@ -441,20 +397,13 @@ void juego::fight(){
         //Boton Curar
          if(action==15){
              int aliado=-1;
-              int enemigo=-1;
-                if(aliado==-1&&enemigo==-1){
+                if(aliado==-1){
                     aliado= hit(personajes);
-                    enemigo= hit(figuras);
-
                 }
+                //A quien curar
                 if(aliado!=-1){
                    personajes[aliado].change_state('h');
                    action=-1;
-
-                }
-                if(enemigo!=-1){
-                    figuras[enemigo].change_state('h');
-                    action=-1;
 
                 }
 
@@ -465,12 +414,12 @@ void juego::fight(){
 
     }
 
-    void juego::generate_enemies(int type,int amount){
+void juego::generate_enemies(int type,int amount){
         size_t enemies=0;
         figuras.clear();
-    while(enemies<amount){
+    while((int)enemies<amount){
         addFigure(type);
-        figuras[enemies].move_position(sf::Vector2f(800-50-100*enemies,542));
+        figuras[enemies].move_position(sf::Vector2f(800-150-200*enemies,530));
         enemies+=1;
     }
     }
